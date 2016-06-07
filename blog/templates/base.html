@@ -1,0 +1,52 @@
+{% extends "bootstrap_ui/bootstrap-skeleton.html" %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% load i18n %}
+
+{% block head-title %}
+    I do
+{% endblock %}
+
+{% block body-content %}
+    {% bootstrap_css %}
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <nav class="navbar navbar-default navbar-fixed-top" id="navbarIdo">
+    	  <div class="container">
+    	    <div class="navbar-header">
+    	      <a class="navbar-brand" href="#" id="title">I do</a>
+    	    </div>
+
+    	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    	      	<ul class="nav navbar-nav">
+            		<li><a href="{% url 'about'%}">Quem somos</a></li>
+                    <li><a href="{% url 'address'%}">Onde estamos</a></li>
+                    <li><a href="{% url 'contacts'%}">Fale Conosco</a></li>
+            		<li><a href="#">Solicite seu orçamento</a></li>
+            	</ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                {% if not user.is_authenticated %}
+                    <a href="{% url 'login'%}">{% trans Login %}Login</a>
+                {% else %}
+                    <a href="{% url 'logout'%}">{% trans Logout %}</a>
+                {% endif %}
+                
+                </li>
+            </ul>
+            </div>
+
+
+    		</div>
+    	</nav>
+
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                <br><br><br><br><br><br><br>
+                {% block content %}
+                {% endblock %}
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

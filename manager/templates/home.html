@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load bootstrap3 %}
+{% block content %}
+
+<h1> Informações sobre <i>{{enterprise.name}}</i></h1> 
+<h4> Quem somos: <br>
+    {{enterprise.who}}</h4>
+
+<h4> Telefone: <br>
+    {{enterprise.phone_contact}}</h4>
+
+<h4> Email: <br>
+    {{enterprise.email_contact}} </h4>
+
+<a href="{% url 'update_enterprise' enterprise.id %}" class="btn btn-primary">
+    {% bootstrap_icon "pencil" %} {% trans 'Update Info' %}
+</a>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load bootstrap3 %}
+{% block content %}
+
+<h1> Informações sobre <i>{{enterprise.name}}</i></h1> 
+
+<form method="post" action="{% url 'update_enterprise' enterprise.id%}">
+{% csrf_token %}
+{% bootstrap_form form %}
+  {% buttons %}
+  <button type="submit" class="btn btn-primary">
+    {% bootstrap_icon "pencil" %} {% trans 'Update' %}
+  </button>
+  {% endbuttons %}
+</form>
+
+{% endblock %}

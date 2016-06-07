@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'ido.wsgi.application'
 LOGIN_URL = '/manager/login'
 
 LOGIN_REDIRECT_URL = '/manager/home'
-
+LOGOUT_REDIRECT_URL = '/'
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
@@ -128,4 +128,4 @@ USE_TZ = True
 STATIC_ROOT = '/static'
 STATIC_URL = '/static/'
 
-DJANGO_BOOTSTRAP_UI_THEME = 'bootswatch-paper'
+DJANGO_BOOTSTRAP_UI_THEME = 'bootswatch-spacelab'
