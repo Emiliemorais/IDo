@@ -1,0 +1,5 @@
+*.pyc
+*__pycache__*
+*.mo
+db.sqlite3
+Finpy/migrations/__pycache__/
