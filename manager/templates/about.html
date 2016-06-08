@@ -3,11 +3,15 @@
 {% load bootstrap3 %}
 {% block content %}
 
-<b><h1> Quem somos: </h1></b>
+<b><h1><a id="icon">{% bootstrap_icon "heart-empty"%}</a>
+		<a id="title">{% trans 'About us'%}</a></h1></b>
 
 	<br>
     
-    <h4>{{enterprise}}</h4>
+    <h4>{{enterprise}}
+   	<br><br>
+    Podemos fazer o seu pedido! Solite o seu orçamento <a href="../blog/budget">aqui</a>.
 
+    </h4>
 
 {% endblock %}

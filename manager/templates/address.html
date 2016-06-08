@@ -3,11 +3,11 @@
 {% load bootstrap3 %}
 {% block content %}
 
-<b><h1> Onde estamos: </h1></b>
+<b><h1><a id="icon">{% bootstrap_icon "map-marker"%}</a>
+		<a id="title">{% trans 'Where we are'%}</a></h1></b>
 
 	<br>
 
-	<h4> Endereço: <br>
-	    {{enterprise}}</h4>
+	<h3> Endereço: {{enterprise}}</h3>
 
 {% endblock %}

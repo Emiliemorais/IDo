@@ -1,11 +1,20 @@
-#title {
+#app_title {
     font-size: xx-large;
-    color: #DC143C;
-    font-family: Times, "Times New Roman", Georgia, serif;
+    color: #FF1493;
 }
 
-#navbarIdo{
-    background-color: #00CED1;
+#icon{
+    color: #FF1493;
 
 }
 
+.btn-primary{
+    background-color: #008B8B;
+    border-color: #008B8B;
+
+}
+
+#title{
+    color: #00CED1;
+
+}

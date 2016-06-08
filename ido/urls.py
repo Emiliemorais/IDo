@@ -24,10 +24,8 @@ urlpatterns = [
     
     url(r'^$', blog_views.home, name='home'),
     url(r'^about/$', manager_views.about, name='about'),
-    url(r'^contacts/$', manager_views.contact, name='contacts'),
     url(r'^address/$', manager_views.address, name='address'),
         
     url(r'^manager/', include('manager.urls')),
-    
-    # url(r'^blog/', include('blog.urls')),
+    url(r'^blog/', include('blog.urls')),
 ]

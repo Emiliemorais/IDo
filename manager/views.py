@@ -14,9 +14,6 @@ def about(request):
     enterprise = Enterprise.objects.get(id=1)
     return render(request, "about.html", {'enterprise': enterprise.who})
 
-def contact(request):
-    enterprise = Enterprise.objects.get(id=1)
-    return render(request, "contacts.html", {'enterprise': enterprise})
 
 def address(request):
     enterprise = Enterprise.objects.get(id=1)

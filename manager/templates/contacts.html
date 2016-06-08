@@ -1,16 +1,45 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load bootstrap3 %}
+{% load bootstrap_ui_tags %}
+
 {% block content %}
 
-<b><h1> Fale conosco: </h1></b>
+
+<b><h1><a id="icon">{% bootstrap_icon "bullhorn"%}</a> <a id="title">{% trans 'Talk to us'%}</a> </h1></b>
 
 	<br>
 
-	<h4> Telefone: <br>
+{% row %}
+
+
+{% column md="6" %}
+
+	 <h4>{% bootstrap_icon "earphone"%} Nosso Telefone  <br><br>
 	    {{enterprise.phone_contact}}</h4>
+	
+{%endcolumn%}
 
-	<h4> Email: <br>
+{% column md="6"%}
+	<h4>{% bootstrap_icon "envelope"%} Nosso Email <br><br>
+
 	    {{enterprise.email_contact}} </h4>
+{%endcolumn%}
+{% endrow %}
 
+<br><br>
+<h4>Você também pode nos enviar uma mensagem</h4>
+	<form method="post" action="{% url 'contacts' %}" class="form-signin">
+	{% csrf_token %}
+	{% bootstrap_form form %}
+
+	<div align="center">
+
+	{% buttons %}
+	  <button type="submit" class="btn btn-primary">
+	    {% trans 'Send' %}
+	  </button>
+    {% endbuttons %}
+    </div>
+	</form>
 {% endblock %}
