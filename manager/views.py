@@ -1,7 +1,10 @@
+# encoding: utf-8
 from django.shortcuts import render, redirect
 from django.template import loader
 from django.http import HttpResponse
 from django.views.generic import View
+from django.contrib import messages
+from django.utils.translation import ugettext, ugettext_lazy as _
 
 from models import Enterprise
 from forms import EnterpriseUpdateForm
@@ -29,18 +32,17 @@ class UpdateEnterpriseView(View):
     success_view = 'index'
     form = EnterpriseUpdateForm
 
+    context = {
+        'title': 'Update Enterprise',
+        'enterprise': enterprise
+    }
+
     def get(self, request, enterprise_id=None):
 
         context_form = self.form(instance=self.enterprise)
-
         try:
-            context = {
-                'form': context_form,
-                'title': 'Update Enterprise',
-                'enterprise': self.enterprise
-            }
-
-            response = render(request, self.template_name, context) 
+            self.context['form'] = context_form
+            response = render(request, self.template_name, self.context) 
         except Exception as e:
             response = HttpResponse(str(e))
 
@@ -52,15 +54,12 @@ class UpdateEnterpriseView(View):
             form = self.form(data=request.POST, instance=self.enterprise)
             if form.is_valid():
                 form.save()
+                messages.add_message(request, messages.SUCCESS, _('Informações atualizadas com sucesso.'))
                 response = redirect(self.success_view)
             else:
-                self.context_form = form
-                context = {
-                    'form': context_form,
-                    'title': 'Update Enterprise',
-                    'enterprise': self.enterprise
-                }
-                response = render(request, self.template_name, context) 
+                self.context['form'] = form
+                messages.add_message(request, messages.ERROR, _('Não foi possível atualizar as informações'))
+                response = render(request, self.template_name, self.context) 
         except Exception as e:
             response = HttpResponse(str(e))
 

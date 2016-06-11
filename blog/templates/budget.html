@@ -1,3 +1,72 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load bootstrap3 %}
+{% load bootstrap_ui_tags %}
+
+{% block content %}
+
+	<h3> Responda algumas perguntas para solicitar seu orçamento </h3>
+
+
+{% column xs="20" md="5" md_offset="1" lg="5" %}
+	
+	<form method="post" action="{% url 'solicit_budget' %}" class="form-signin">
+	{% csrf_token %}
+<div align="center">
+	<h4><a id=title> Você </a></h4>
+
+	{% bootstrap_field form.sender_name %}
+	{% bootstrap_field form.sender_age %}
+	{% bootstrap_field form.sender_email%}
+	{% bootstrap_field form.sender_phone %}
+</div>
+{% endcolumn %}
+	
+{% column xs="20" md="10" md_offset="1" lg="5" %}
+<div align="center">
+
+	<h4><a id=title> A pessoa que receberá o pedido </a></h4>
+
+
+	{% bootstrap_field form.partner_name %} {% bootstrap_field form.partner_age %}
+
+
+	{% bootstrap_field form.lifestyle %}
+	{% bootstrap_field form.personality %}
+</div>
+{% endcolumn %}
+
+{% column xs="40" md="10" md_offset="1" lg="5" %}
+<div align="center">
+
+	<h4><a id=title> Sobre o relacionamento </a></h4>
+	{% bootstrap_field form.story %}
+	{% bootstrap_field form.relationship_time_number %}
+	{% bootstrap_field form.relationship_time %}
+</div>
+{% endcolumn %}
+
+{% column xs="20" md="10" md_offset="1" lg="5" %}
+
+<div align="center">
+
+	<h4><a id=title> Sobre o pedido </a></h4>
+
+	{% bootstrap_field form.cost_pretension %}
+	{% bootstrap_field form.ideal_place %}
+	{% bootstrap_field form.additional_info %}
+</div>
+{% endcolumn %}
+
+	{% bootstrap_form_errors form %}
+<div align="center">
+
+	{% buttons %}
+	  <button type="submit" class="btn btn-primary">
+	    {% trans 'Solicit your budget' %}
+	  </button>
+    {% endbuttons %}
+</div>
+	</form>
+
+{% endblock %}

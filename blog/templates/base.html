@@ -8,6 +8,8 @@
 {% endblock %}
 
 {% block body-content %}
+
+
     {% bootstrap_css %}
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
         <nav class="navbar navbar-default navbar-fixed-top" id="navbarIdo">
@@ -17,12 +19,19 @@
     	    </div>
 
     	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    	      	<ul class="nav navbar-nav">
+                <ul class="nav navbar-nav">
+                {% if not user.is_authenticated %}
             		<li><a href="{% url 'about'%}">{% trans 'About' %}</a></li>
                     <li><a href="{% url 'address'%}">{% trans 'Where we are' %}</a></li>
                     <li><a href="{% url 'contacts'%}">{% trans 'Talk to us' %}</a></li>
                     <li><a href="{% url 'solicit_budget'%}">{% trans 'Solicit your budget' %}</a></li>
-            	</ul>
+            	{% else %}
+                    <li><a href="{% url 'about'%}">{% trans 'Enterprise info' %}</a></li>
+                    <li><a href="{% url 'address'%}">{% trans 'Messages' %}</a></li>
+                    <li><a href="{% url 'contacts'%}">{% trans 'Posts' %}</a></li>
+                    <li><a href="{% url 'solicit_budget'%}">{% trans 'Bugdet solicitations' %}</a></li>
+                {%endif%}
+                </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
                 {% if not user.is_authenticated %}
@@ -43,10 +52,24 @@
             <div class="row">
                 <div class="col-md-8">
                 <br><br><br><br><br><br><br>
+                {% block messages %}
+                {% for message in messages %}
+                  <div class="alert alert-dismissable {{ message.tags }}">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    {{ message }}
+                  </div>
+                {% endfor %}
+                <div id="alert-js" class="alert alert-dismissable alert-warning" hidden>
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                  <span id="alert-message"></span>
+                </div>
+                {% endblock %}
                 {% block content %}
                 {% endblock %}
                 </div>
             </div>
         </div>
+
+        
 
 {% endblock %}
