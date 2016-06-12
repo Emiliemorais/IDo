@@ -5,68 +5,98 @@
 
 {% block content %}
 
-	<h3> Responda algumas perguntas para solicitar seu orçamento </h3>
+	<h3> {% trans 'Responda algumas perguntas para solicitar seu orçamento' %} </h3>
+		* <i> Campos obrigatórios </i>
+<ul class="nav nav-tabs">
+<li class="active">
+	<a href="#you" id=title class="btn btn-tab" data-toggle="tab"> {% trans 'You' %}</a>
+</li>
+<li>
+	<a href="#partner" class="btn btn-tab" data-toggle="tab" id=title> {% trans 'Your partner' %}</a>
+</li>
+<li>
+	<a href="#relation" class="btn btn-tab" data-toggle="tab" id=title> {% trans 'Your Relationship' %} </a>
+</li>
+<li>
+	<a href="#propose" class="btn btn-tab" data-toggle="tab" id=title> {% trans 'The propose' %}</a>
+</li>
 
+</ul>
 
-{% column xs="20" md="5" md_offset="1" lg="5" %}
+<form method="post" action="{% url 'solicit_budget' %}" class="form-signin">
+{% csrf_token %}
+
+<div class="tab-content">
+
+<div class="tab-pane fade active in" align="center" id=you>
+
+	<br><br>
+	{% column xs="20" md="5" md_offset="4" lg="5" %}
 	
-	<form method="post" action="{% url 'solicit_budget' %}" class="form-signin">
-	{% csrf_token %}
-<div align="center">
-	<h4><a id=title> Você </a></h4>
-
-	{% bootstrap_field form.sender_name %}
-	{% bootstrap_field form.sender_age %}
-	{% bootstrap_field form.sender_email%}
+	{% bootstrap_field form.sender_name addon_before='*'%}
+	{% bootstrap_field form.sender_age addon_before='*'%}
+	{% bootstrap_field form.sender_email addon_before='*'%}
 	{% bootstrap_field form.sender_phone %}
-</div>
-{% endcolumn %}
 	
-{% column xs="20" md="10" md_offset="1" lg="5" %}
-<div align="center">
-
-	<h4><a id=title> A pessoa que receberá o pedido </a></h4>
-
-
-	{% bootstrap_field form.partner_name %} {% bootstrap_field form.partner_age %}
-
-
-	{% bootstrap_field form.lifestyle %}
-	{% bootstrap_field form.personality %}
+	{% endcolumn %}
 </div>
-{% endcolumn %}
 
-{% column xs="40" md="10" md_offset="1" lg="5" %}
-<div align="center">
 
-	<h4><a id=title> Sobre o relacionamento </a></h4>
-	{% bootstrap_field form.story %}
+
+<div class="tab-pane fade" align="center" id=partner>
+	
+	<br><br>
+	{% column xs="20" md="5" md_offset="4" lg="5" %}
+
+	{% bootstrap_field form.partner_name addon_before='*'%} 
+	{% bootstrap_field form.partner_age addon_before='*'%}
+	{% bootstrap_field form.personality addon_before='*'%}
+	{% bootstrap_field form.lifestyle %}
+
+	{% endcolumn %}
+
+</div>
+
+
+<div class="tab-pane fade" align="center" id=relation>
+
+	<br><br>
+	{% column xs="20" md="10" md_offset="4" lg="5" %}
+
 	{% bootstrap_field form.relationship_time_number %}
 	{% bootstrap_field form.relationship_time %}
+	{% bootstrap_field form.story %}
+
+	{% endcolumn %}
+
 </div>
-{% endcolumn %}
 
-{% column xs="20" md="10" md_offset="1" lg="5" %}
 
-<div align="center">
+<div class="tab-pane fade" align="center" id=propose>
+	
+	<br><br>
+	{% column xs="20" md="10" md_offset="2" lg="15" %}
 
-	<h4><a id=title> Sobre o pedido </a></h4>
 
 	{% bootstrap_field form.cost_pretension %}
-	{% bootstrap_field form.ideal_place %}
+	{% bootstrap_field form.ideal_place addon_before='*'%}
 	{% bootstrap_field form.additional_info %}
-</div>
-{% endcolumn %}
 
+	{% endcolumn %}
+	
 	{% bootstrap_form_errors form %}
 <div align="center">
 
 	{% buttons %}
 	  <button type="submit" class="btn btn-primary">
-	    {% trans 'Solicit your budget' %}
+	    {% trans 'Solicit' %}
 	  </button>
     {% endbuttons %}
 </div>
 	</form>
+
+</div>
+
+</div>
 
 {% endblock %}

@@ -7,7 +7,7 @@ class Message(models.Model):
     
     sender_name = models.CharField((_('Sender name')), max_length=100)
     customer_email = models.EmailField((_('Customer email')), blank=True)
-    phone_email = models.CharField((_('Phone email')), max_length=12, blank=True)
+    phone_email = models.CharField((_('Custome phone')), max_length=12, blank=True)
     content = models.TextField((_('Message')))
     
     def __str__(self):

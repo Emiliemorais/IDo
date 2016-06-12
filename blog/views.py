@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- coding: utf-8 -*- 
 from django.shortcuts import render, redirect
 from django.views.generic import View
 from django.http import HttpResponse

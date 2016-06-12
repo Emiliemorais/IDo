@@ -1,0 +1,203 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-06-12 00:39+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: blog/models.py:8 blog/models.py:45
+msgid "Sender name"
+msgstr "Nome"
+
+#: blog/models.py:9
+msgid "Customer email"
+msgstr "Email"
+
+#: blog/models.py:10
+msgid "Custome phone"
+msgstr "Telefone"
+
+#: blog/models.py:11
+msgid "Message"
+msgstr "Mensagem"
+
+#: blog/models.py:19 blog/models.py:25
+msgid "Days"
+msgstr "Dias"
+
+#: blog/models.py:20 blog/models.py:26
+msgid "Weeks"
+msgstr "Semanas"
+
+#: blog/models.py:21 blog/models.py:27
+msgid "Months"
+msgstr "Meses"
+
+#: blog/models.py:22 blog/models.py:28
+msgid "Years"
+msgstr "Anos"
+
+#: blog/models.py:31 blog/models.py:38
+msgid "Sporting"
+msgstr "Esportivo"
+
+#: blog/models.py:32 blog/models.py:39
+msgid "Adventurous"
+msgstr "Aventureiro"
+
+#: blog/models.py:33 blog/models.py:40
+msgid "Homelike"
+msgstr "Caseiro"
+
+#: blog/models.py:34 blog/models.py:41
+msgid "Partier"
+msgstr "Festeiro"
+
+#: blog/models.py:35 blog/models.py:42
+msgid "Fitness"
+msgstr "Fitness"
+
+#: blog/models.py:46
+msgid "Sender age"
+msgstr "Idade"
+
+#: blog/models.py:47
+msgid "Partner name"
+msgstr "Nome da pessoa"
+
+#: blog/models.py:48
+msgid "Partner age"
+msgstr "Idade da pessoa"
+
+#: blog/models.py:49
+msgid "Story"
+msgstr "História do casal"
+
+#: blog/models.py:50
+msgid "Relationship time number"
+msgstr "Tempo de relação"
+
+#: blog/models.py:51
+msgid "Date Period"
+msgstr "Período"
+
+#: blog/models.py:52
+msgid "Lifestyle"
+msgstr "Estilo de vida"
+
+#: blog/models.py:53
+msgid "Personality"
+msgstr "Característica principal de personalidade (Ex: tímida)"
+
+#: blog/models.py:54
+msgid "Cost pretension"
+msgstr "Quanto pretende gastar"
+
+#: blog/models.py:55
+msgid "Ideal place"
+msgstr "Tipo de lugar ideal para o pedido (Ex: Ao ar livre)"
+
+#: blog/models.py:56
+msgid "Sender email"
+msgstr "Email"
+
+#: blog/models.py:57
+msgid "Sender phone"
+msgstr "Telefone"
+
+#: blog/models.py:58
+msgid "Additionl info"
+msgstr "Outras informações"
+
+#: blog/templates/base.html:24
+msgid "About"
+msgstr "Quem somos"
+
+#: blog/templates/base.html:25
+msgid "Where we are"
+msgstr "Onde estamos"
+
+#: blog/templates/base.html:26
+msgid "Talk to us"
+msgstr "Fale Conosco"
+
+#: blog/templates/base.html:27
+msgid "Solicit your budget"
+msgstr "Solicite seu orçamento"
+
+#: blog/templates/base.html:29
+msgid "Enterprise info"
+msgstr "Informações da empresa"
+
+#: blog/templates/base.html:30
+msgid "Messages"
+msgstr "Mensagens"
+
+#: blog/templates/base.html:31
+msgid "Posts"
+msgstr "Posts"
+
+#: blog/templates/base.html:32
+msgid "Bugdet solicitations"
+msgstr "Solicitações de orçamento"
+
+#: blog/templates/base.html:38
+msgid "Login"
+msgstr "Entrar"
+
+#: blog/templates/base.html:40
+msgid "Logout"
+msgstr "Sair"
+
+#: blog/templates/budget.html:8
+msgid "Responda algumas perguntas para solicitar seu orçamento"
+msgstr ""
+
+#: blog/templates/budget.html:12
+msgid "You"
+msgstr "Você"
+
+#: blog/templates/budget.html:15
+msgid "Your partner"
+msgstr "A pessoa que receberá o pedido"
+
+#: blog/templates/budget.html:18 blog/templates/budget.html:111
+msgid "Your Relationship"
+msgstr "Sobre o relacionamento"
+
+#: blog/templates/budget.html:21 blog/templates/budget.html:119
+msgid "The propose"
+msgstr "Sobre o pedido"
+
+#: blog/templates/budget.html:92
+msgid "Solicit"
+msgstr "Solicitar"
+
+#: blog/views.py:40
+msgid "Orçamento solicitado com sucesso. Entraremos em contato em breve."
+msgstr "Orçamento solicitado com sucesso. Entraremos em contato em breve."
+
+#: blog/views.py:44
+msgid "Não foi possível solicitar o orçamento. Tente novamente."
+msgstr ""
+
+#: blog/views.py:84
+msgid "Mensagem enviada com sucesso. Entraremos em contato em breve."
+msgstr ""
+
+#: blog/views.py:87
+msgid "Não foi possível enviar a mensagem. Tente novamente."
+msgstr ""
