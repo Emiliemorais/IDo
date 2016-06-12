@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-12 00:39+0000\n"
+"POT-Creation-Date: 2016-06-12 03:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -147,12 +147,12 @@ msgid "Messages"
 msgstr "Mensagens"
 
 #: blog/templates/base.html:31
-msgid "Posts"
-msgstr "Posts"
-
-#: blog/templates/base.html:32
 msgid "Bugdet solicitations"
 msgstr "Solicitações de orçamento"
+
+#: blog/templates/base.html:32
+msgid "Posts"
+msgstr "Posts"
 
 #: blog/templates/base.html:38
 msgid "Login"
@@ -174,11 +174,11 @@ msgstr "Você"
 msgid "Your partner"
 msgstr "A pessoa que receberá o pedido"
 
-#: blog/templates/budget.html:18 blog/templates/budget.html:111
+#: blog/templates/budget.html:18
 msgid "Your Relationship"
 msgstr "Sobre o relacionamento"
 
-#: blog/templates/budget.html:21 blog/templates/budget.html:119
+#: blog/templates/budget.html:21
 msgid "The propose"
 msgstr "Sobre o pedido"
 
@@ -194,10 +194,10 @@ msgstr "Orçamento solicitado com sucesso. Entraremos em contato em breve."
 msgid "Não foi possível solicitar o orçamento. Tente novamente."
 msgstr ""
 
-#: blog/views.py:84
+#: blog/views.py:82
 msgid "Mensagem enviada com sucesso. Entraremos em contato em breve."
 msgstr ""
 
-#: blog/views.py:87
+#: blog/views.py:85
 msgid "Não foi possível enviar a mensagem. Tente novamente."
 msgstr ""

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load bootstrap3 %}
+{% load bootstrap_ui_tags %}
+
+{% block content %}
+
+
+{% for budget in budgets %}
+
+{% column md="6" md_offset="1" lg="5"%}
+
+    {% panel add_css_classes="panel-ido"%}
+        {% panelheading %}
+    		Solicitação de: <b>{{budget.sender_name}}</b>
+
+
+        {% endpanelheading %}
+       
+        {% panelbody %}
+            <b>Idade:</b> {{budget.sender_age}} 
+            <br>
+            <b>Nome do(a) parceiro(a):</b> {{budget.partner_name}}
+            <br>
+            <b>Idade do(a) parceiro(a):</b> {{budget.partner_age}}
+            <br>
+        <br>
+        <div align="center">
+
+            <a href="{% url 'budget' budget.id %}" class="btn btn-primary">
+                {% trans 'Show budget' %}
+            </a>
+        <br>      
+        <br>      
+        <form method="post" action="{% url 'delete_budget' budget.id%}">
+            {% csrf_token %}
+        
+            {% buttons %}
+                  <button type="submit" class="btn btn-danger">
+                        {% trans 'Delete budget' %}
+                  </button>
+            {% endbuttons %}
+           </div>
+        </form>
+        {% endpanelbody %}
+
+    {% endpanel %}
+    
+    {% endcolumn %}
+
+    {% empty %}
+        <h4> Não há nenhuma mensagem! </h4>
+
+{% endfor %}
+
+{% endblock %}

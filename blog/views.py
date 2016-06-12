@@ -37,11 +37,11 @@ class BudgetView(View):
             form = self.form(data=request.POST)
             if form.is_valid():
                 form.save()
-                messages.add_message(request, messages.SUCCESS, _('Orçamento solicitado com sucesso. Entraremos em contato em breve.'))
+                messages.add_message(request, messages.SUCCESS, _('Orcamento solicitado com sucesso. Entraremos em contato em breve.'))
                 response = redirect('/') 
             else:
                 self.context['form'] = form
-                messages.add_message(request, messages.ERROR, _('Não foi possível solicitar o orçamento. Tente novamente.'))
+                messages.add_message(request, messages.ERROR, _('Nao foi possivel solicitar o orcamento. Tente novamente.'))
                 response = render(request, self.template_name, self.context) 
         except Exception as e:
             response = HttpResponse(str(e))
@@ -67,7 +67,6 @@ class MessageView(View):
     
     def get(self, request):
         try:
-
             response = render(request, self.template_name, self.context) 
         except Exception as e:
             response = HttpResponse(str(e))
@@ -78,13 +77,12 @@ class MessageView(View):
 
         try:
             form = self.form(data=request.POST)
-            print form
             if form.is_valid():
                 form.save()
                 messages.add_message(request, messages.SUCCESS, _('Mensagem enviada com sucesso. Entraremos em contato em breve.'))
                 response = redirect(self.success_view)
             else:
-                messages.add_message(request, messages.ERROR, _('Não foi possível enviar a mensagem. Tente novamente.'))
+                messages.add_message(request, messages.ERROR, _('Nao foi possivel enviar a mensagem. Tente novamente.'))
                 response = render(request, self.template_name, self.context) 
         except Exception as e:
             response = HttpResponse(str(e))

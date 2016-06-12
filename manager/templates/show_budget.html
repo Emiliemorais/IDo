@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load bootstrap3 %}
+{% load bootstrap_ui_tags %}
+
+{% block content %}
+
+<h4 id=title > Sobre o solicitante </h4>
+
+	<b>Nome do solicitante: </b> {{budget.sender_name}}
+	<br>
+    <b>Idade:</b> {{budget.sender_age}} 
+    <br>
+    <b>Email:</b> {{budget.sender_email}} 
+    <br>
+    <b>Telefone:</b> {{budget.sender_phone}} 
+    <br>
+    
+<h4 id=title > Sobre a pessoa que receberá o pedido </h4>
+    <b>Nome:</b> {{budget.partner_name}}
+    <br>
+    <b>Idade:</b> {{budget.partner_age}}
+    <br>
+    <b>Estilo de vida:</b> {{budget.lifestyle }}
+    <br>
+    <b>Personalidade:</b> {{budget.personnality}}
+    <br>
+
+<h4 id=title > Sobre o relacionamento </h4>
+	<b>Tempo de relação:</b> {{budget.relation_time_number}}{{budget.relation_time}}
+    <br>
+    <b>História:</b> {{budget.story}}
+    <br>
+    
+<h4 id=title > Sobre o pedido </h4>
+	<b>Custo pretendido:</b> {{budget.cost_pretension}}
+    <br>
+    <b>Lugar ideal:</b> {{budget.ideal_place}}
+    <br>
+   	<b>Informações adicionais:</b> {{budget.additional_info}}
+    <br>
+    
+{% endblock %}

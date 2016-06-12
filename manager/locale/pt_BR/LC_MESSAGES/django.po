@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-12 00:39+0000\n"
+"POT-Creation-Date: 2016-06-12 03:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,6 +25,14 @@ msgstr "Quem somos"
 #: manager/templates/address.html:7
 msgid "Where we are"
 msgstr "Onde estamos"
+
+#: manager/templates/budgets.html:31
+msgid "Show budget"
+msgstr "Ver solicitação"
+
+#: manager/templates/budgets.html:40
+msgid "Delete budget"
+msgstr "Excluir solicitação"
 
 #: manager/templates/contacts.html:9
 msgid "Talk to us"
@@ -58,14 +66,36 @@ msgstr "Entrar"
 msgid "Lost password"
 msgstr "Esqueceu a senha"
 
+#: manager/templates/messages.html:19
+#, fuzzy
+#| msgid "Our Email"
+msgid "Email"
+msgstr "Email"
+
+#: manager/templates/messages.html:27
+msgid "Custome phone"
+msgstr "Telefone"
+
+#: manager/templates/messages.html:33
+msgid "Message"
+msgstr "Mensagem"
+
+#: manager/templates/messages.html:43
+msgid "Delete message"
+msgstr "Excluir mensagem"
+
 #: manager/templates/update.html:13
 msgid "Update"
 msgstr "Atualizar"
 
-#: manager/views.py:57
+#: manager/views.py:62
 msgid "Informações atualizadas com sucesso."
 msgstr ""
 
-#: manager/views.py:61
+#: manager/views.py:66
 msgid "Não foi possível atualizar as informações"
+msgstr ""
+
+#: manager/views.py:104
+msgid "Mensagem excluída com sucesso."
 msgstr ""

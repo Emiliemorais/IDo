@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load bootstrap3 %}
+{% load bootstrap_ui_tags %}
+
+{% block content %}
+
+{% for message in visitant_messages %}
+
+{% panel add_css_classes="panel-ido"%}
+    {% panelheading %}
+		Mensagem de: <b>{{message.sender_name}}</b>
+    {% endpanelheading %}
+   
+    {% panelbody %}
+    	
+    	{% if message.customer_email != ""%}
+    	
+    	<b>{% trans 'Email' %}:</b>
+    	{{message.customer_email}}
+        
+        {% endif %}
+
+        <br>
+        {% if message.phone_email != ""%}
+
+		<b>{% trans 'Custome phone' %}:</b>
+        {{message.phone_email}}
+        
+        <br>
+        {% endif %}
+
+        <b>{% trans 'Message' %}:</b>
+        {{message.content}}
+
+	<form method="post" action="{% url 'delete_message' message.id%}" class="form-signin">
+		{% csrf_token %}
+       
+        <div align="right">
+
+		{% buttons %}
+			  <button type="submit" class="btn btn-danger">
+			    {% trans 'Delete message' %}
+			  </button>
+		{% endbuttons %}
+		</div>
+    </form>
+    {% endpanelbody %}
+
+{% endpanel %}
+
+{% empty %}
+	<h4> Não há nenhuma mensagem! </h4>
+
+{% endfor %}
+
+{% endblock %}

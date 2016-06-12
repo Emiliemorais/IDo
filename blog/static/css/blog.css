@@ -8,13 +8,19 @@
 
 }
 
-.btn-primary{
+.btn-ido{
     background-color: #008B8B;
     border-color: #008B8B;
-
+    color: white;
 }
 
 #title{
     color: #00CED1;
 
+}
+
+.panel-ido > .panel-heading {
+  color: #fff;
+  background-color: #008B8B;
+  border-color: #008B8B;
 }
