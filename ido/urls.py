@@ -23,8 +23,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     
     url(r'^$', blog_views.home, name='home'),
-    url(r'^about/$', manager_views.about, name='about'),
-    url(r'^address/$', manager_views.address, name='address'),
+    url(r'^about/$', blog_views.about, name='about'),
+    url(r'^address/$', blog_views.address, name='address'),
         
     url(r'^manager/', include('manager.urls')),
     url(r'^blog/', include('blog.urls')),

@@ -16,15 +16,6 @@ def index(request):
     enterprise = Enterprise.objects.get(id=1)
     return render(request, "home.html", {'enterprise': enterprise})
 
-def about(request):
-    enterprise = Enterprise.objects.get(id=1)
-    return render(request, "about.html", {'enterprise': enterprise.who})
-
-
-def address(request):
-    enterprise = Enterprise.objects.get(id=1)
-    return render(request, "address.html", {'enterprise': enterprise.address})
-
 class UpdateEnterpriseView(View):
 
     # Allowed methods on the view

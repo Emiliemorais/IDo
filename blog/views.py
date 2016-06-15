@@ -12,6 +12,14 @@ from forms import MessageForm, QuestionnarieForm
 def home(request):
     return render(request, "home.html", {"Hello, world" : "You're at the polls index."})
 
+def about(request):
+    enterprise = Enterprise.objects.get(id=1)
+    return render(request, "about.html", {'enterprise': enterprise.who})
+
+def address(request):
+    enterprise = Enterprise.objects.get(id=1)
+    return render(request, "address.html", {'enterprise': enterprise.address})
+
 class BudgetView(View):
 
     # Allowed methods on the view
