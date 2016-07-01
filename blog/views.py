@@ -7,7 +7,7 @@ from django.utils.translation import ugettext, ugettext_lazy as _
 from django.db.models.signals import post_save
 
 from models import Message, Questionnaire
-from blog_signals import my_notify
+from blog_signals import message_notify, budget_notify
 from manager.models import Enterprise
 from forms import MessageForm, QuestionnarieForm
 
@@ -46,6 +46,7 @@ class BudgetView(View):
         try:
             form = self.form(data=request.POST)
             if form.is_valid():
+                post_save.connect(budget_notify, sender=Questionnaire)
                 form.save()
                 messages.add_message(request, messages.SUCCESS, _('Orcamento solicitado com sucesso. Entraremos em contato em breve.'))
                 response = redirect('/') 
@@ -88,7 +89,7 @@ class MessageView(View):
         try:
             form = self.form(data=request.POST)
             if form.is_valid():
-                post_save.connect(my_notify, sender=Message)
+                post_save.connect(message_notify, sender=Message)
                 form.save()
                 messages.add_message(request, messages.SUCCESS, _('Mensagem enviada com sucesso. Entraremos em contato em breve.'))
                 response = redirect(self.success_view)

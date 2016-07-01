@@ -103,7 +103,7 @@ class MessageView(View):
         return response
 
     def mark_messages_notifications_as_read(self):
-        notifications = Notification.objects.filter(verb="send a new message")
+        notifications = Notification.objects.filter(description="new message")
         for notification in notifications:
             notification.mark_as_read()
 
@@ -127,6 +127,8 @@ class BudgetView(View):
     def get(self, request, budget_id=None):
 
         context = self.get_all_solicited_budgets()
+        # When see budgets, mark notifications as read
+        self.mark_budgets_notifications_as_read()
         response = render(request, self.template_name, context) 
         
         return response
@@ -155,3 +157,8 @@ class BudgetView(View):
             response = HttpResponse(str(e))
 
         return response
+
+    def mark_budgets_notifications_as_read(self):
+        notifications = Notification.objects.filter(description="new solicited budget")
+        for notification in notifications:
+            notification.mark_as_read()

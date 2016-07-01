@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-01 11:16-0300\n"
+"POT-Creation-Date: 2016-07-01 11:50-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,9 +18,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: blog/blog_signals.py:8
+#: blog/blog_signals.py:7
 msgid "send a new message"
-msgstr ""
+msgstr "enviou uma nova mensagem"
+
+#: blog/blog_signals.py:11
+msgid "solicited a budget"
+msgstr "solicitou um orçamento"
 
 #: blog/models.py:8 blog/models.py:45
 msgid "Sender name"
@@ -170,7 +174,7 @@ msgstr "Você tem"
 msgid "notifications"
 msgstr "notificações"
 
-#: blog/templates/base.html:67
+#: blog/templates/base.html:71
 msgid "Logout"
 msgstr "Sair"
 
@@ -198,20 +202,20 @@ msgstr "Sobre o pedido"
 msgid "Solicit"
 msgstr "Solicitar"
 
-#: blog/views.py:50
+#: blog/views.py:51
 #, fuzzy
 #| msgid "Orçamento solicitado com sucesso. Entraremos em contato em breve."
 msgid "Orcamento solicitado com sucesso. Entraremos em contato em breve."
 msgstr "Orçamento solicitado com sucesso. Entraremos em contato em breve."
 
-#: blog/views.py:54
+#: blog/views.py:55
 msgid "Nao foi possivel solicitar o orcamento. Tente novamente."
 msgstr ""
 
-#: blog/views.py:93
+#: blog/views.py:94
 msgid "Mensagem enviada com sucesso. Entraremos em contato em breve."
 msgstr ""
 
-#: blog/views.py:96
+#: blog/views.py:97
 msgid "Nao foi possivel enviar a mensagem. Tente novamente."
 msgstr ""
