@@ -14,7 +14,7 @@ from blog.models import Message, Questionnaire
 
 def index(request):
     enterprise = Enterprise.objects.get(id=1)
-    return render(request, "home.html", {'enterprise': enterprise})
+    return render(request, "manager_home.html", {'enterprise': enterprise})
 
 class UpdateEnterpriseView(View):
 

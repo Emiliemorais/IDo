@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'blog',
     'manager',
     'bootstrap3',
-    'bootstrap_ui'
+    'bootstrap_ui',
+    'notifications'
 ]
 
 MIDDLEWARE_CLASSES = [
