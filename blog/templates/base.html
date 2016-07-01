@@ -35,16 +35,39 @@
                 {%endif%}
                 </ul>
             <ul class="nav navbar-nav navbar-right">
-                {% live_notify_list classes="dropdown-menu" %}
                 {% if not user.is_authenticated %}
                     <li>
-                    <a href="{% url 'login'%}">{% trans 'Login' %}</a>
+                        <a href="{% url 'login'%}">{% trans 'Login' %}</a>
+                    </li>
                 {% else %}
+                    <li class="dropdown notifications-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                      <i class="fa fa-bell-o"></i>
+                      <span class="label label-ido">{% notifications_unread %}</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li class="header">{% trans 'You have'%} {% notifications_unread %} {% trans 'notifications' %}</li>
+                        
+                        <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 200px;">
+                        <ul class="menu" style="overflow: hidden; width: 100%; height: 200px;">
+                            {% with user.notifications.unread as unread_notification %}
+                                {% for notification in unread_notification %}
+                                    <li>
+                                        <a href="{% url 'messages'%}">
+                                            {{notification}}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            {% endwith %} 
+                        </ul>
+                        </div>
+                    </ul>
+                    </li>
                     <li>
-                    <a href="{% url 'logout'%}">{% trans 'Logout' %}</a>
+                        <a href="{% url 'logout'%}">{% trans 'Logout' %}</a>
+                    </li>
                 {% endif %}
                 
-                </li>
             </ul>
             </div>
 

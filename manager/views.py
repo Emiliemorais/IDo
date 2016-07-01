@@ -1,16 +1,17 @@
 # -*- coding: utf-8 -*- 
 from django.shortcuts import render, redirect
-from django.template import loader
 from django.http import HttpResponse
 from django.views.generic import View
 from django.contrib import messages
 from django.utils.translation import ugettext, ugettext_lazy as _
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.contrib.auth.models import User
 
 from models import Enterprise
 from forms import EnterpriseUpdateForm
 from blog.models import Message, Questionnaire
+from notifications.models import Notification
 
 def index(request):
     enterprise = Enterprise.objects.get(id=1)
@@ -80,6 +81,8 @@ class MessageView(View):
     def get(self, request):
         try:
             context = self.get_all_messages()
+            # When see messages, mark notifications as read
+            self.mark_messages_notifications_as_read()
             response = render(request, self.template_name, context) 
         except Exception as e:
             response = HttpResponse(str(e))
@@ -98,6 +101,12 @@ class MessageView(View):
             response = HttpResponse(str(e))
 
         return response
+
+    def mark_messages_notifications_as_read(self):
+        notifications = Notification.objects.filter(verb="send a new message")
+        for notification in notifications:
+            notification.mark_as_read()
+
 
 class BudgetView(View):
 

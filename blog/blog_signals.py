@@ -5,4 +5,4 @@ from django.contrib.auth.models import Group
 
 def my_notify(sender, instance, created, **kwargs):
 	group = Group.objects.get(name="admin")
-	notify.send(instance, recipient=group, verb=_('new message'))
+	notify.send(instance, recipient=group, verb=_('send a new message'))
