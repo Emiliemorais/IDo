@@ -53,7 +53,11 @@
                             {% with user.notifications.unread as unread_notification %}
                                 {% for notification in unread_notification %}
                                     <li>
-                                        <a href="{% url 'messages'%}">
+                                        {% if notification.description == "new message"%}
+                                            <a href="{% url 'messages'%}">
+                                        {% else %}
+                                            <a href="{% url 'solicited_budgets'%}">
+                                        {% endif %}
                                             {{notification}}
                                         </a>
                                     </li>
