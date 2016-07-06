@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*- 
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseBadRequest
 from django.views.generic import View
 from django.contrib import messages
 from django.utils.translation import ugettext, ugettext_lazy as _
@@ -12,10 +12,21 @@ from models import Enterprise
 from forms import EnterpriseUpdateForm
 from blog.models import Message, Questionnaire
 from notifications.models import Notification
+from manager_signals import notification_read, mark_notification_as_read
 
 def index(request):
     enterprise = Enterprise.objects.get(id=1)
     return render(request, "manager_home.html", {'enterprise': enterprise})
+
+def notifications(request):
+    notification_id = request.POST.get('notification_id')
+    if not notification_id:
+        return HttpResponseBadRequest()
+
+    notification_read.send(sender=None, notification_id=notification_id)
+
+    return HttpResponse(status=201)
+
 
 class UpdateEnterpriseView(View):
 
@@ -81,8 +92,6 @@ class MessageView(View):
     def get(self, request):
         try:
             context = self.get_all_messages()
-            # When see messages, mark notifications as read
-            self.mark_messages_notifications_as_read()
             response = render(request, self.template_name, context) 
         except Exception as e:
             response = HttpResponse(str(e))
@@ -102,10 +111,6 @@ class MessageView(View):
 
         return response
 
-    def mark_messages_notifications_as_read(self):
-        notifications = Notification.objects.filter(description="new message")
-        for notification in notifications:
-            notification.mark_as_read()
 
 
 class BudgetView(View):
@@ -127,8 +132,6 @@ class BudgetView(View):
     def get(self, request, budget_id=None):
 
         context = self.get_all_solicited_budgets()
-        # When see budgets, mark notifications as read
-        self.mark_budgets_notifications_as_read()
         response = render(request, self.template_name, context) 
         
         return response
@@ -157,8 +160,3 @@ class BudgetView(View):
             response = HttpResponse(str(e))
 
         return response
-
-    def mark_budgets_notifications_as_read(self):
-        notifications = Notification.objects.filter(description="new solicited budget")
-        for notification in notifications:
-            notification.mark_as_read()

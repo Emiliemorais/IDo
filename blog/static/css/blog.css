@@ -30,3 +30,14 @@
   color: #fff;
   background-color: #FF1493;
 }
+
+a {
+  color: #008B8B;
+}
+a:hover,
+a:active,
+a:focus {
+  outline: none;
+  text-decoration: none;
+  color: #FF1493;
+}

@@ -11,23 +11,32 @@
 
 {% block body-content %}
 
+    <script src="{% static "js/jquery-1.11.1.js" %}"></script>
+    <script src="{% static "js/rango-jquery.js" %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="{% static "js/ido.js" %}"></script>
 
+    
+    <div id="urlaccess">
+        {% url 'notifications'%}
+    </div>
+    
     {% bootstrap_css %}
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
         <nav class="navbar navbar-default navbar-fixed-top" id="navbarIdo">
-    	  <div class="container">
-    	    <div class="navbar-header">
+          <div class="container">
+            <div class="navbar-header">
               <a class="navbar-brand" href="#" id="app_title"><i>I do</i></a>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                 {% if not user.is_authenticated %}
-            		<li><a href="{% url 'about'%}">{% trans 'About' %}</a></li>
+                    <li><a href="{% url 'about'%}">{% trans 'About' %}</a></li>
                     <li><a href="{% url 'address'%}">{% trans 'Where we are' %}</a></li>
                     <li><a href="{% url 'contacts'%}">{% trans 'Talk to us' %}</a></li>
                     <li><a href="{% url 'solicit_budget'%}">{% trans 'Solicit your budget' %}</a></li>
-            	{% else %}
+                {% else %}
                     <li><a href="{% url 'update_enterprise' 1%}">{% trans 'Enterprise info' %}</a></li>
                     <li><a href="{% url 'messages'%}">{% trans 'Messages' %}</a></li>
                     <li><a href="{% url 'solicited_budgets'%}">{% trans 'Bugdet solicitations' %}</a></li>
@@ -52,15 +61,15 @@
                         <ul class="menu" style="overflow: hidden; width: 100%; height: 200px;">
                             {% with user.notifications.unread as unread_notification %}
                                 {% for notification in unread_notification %}
-                                    <li>
-                                        {% if notification.description == "new message"%}
-                                            <a href="{% url 'messages'%}">
-                                        {% else %}
-                                            <a href="{% url 'solicited_budgets'%}">
-                                        {% endif %}
-                                            {{notification}}
-                                        </a>
-                                    </li>
+                                    <input type="hidden" id="notification_id" value="{{ notification.id }}"></input>
+                                    {% if notification.description == "new message"%}
+                                        <a href="{% url 'messages'%}" id='notification_read'>
+                                    {% else %}
+                                        <a href="{% url 'solicited_budgets'%}" id='notification_read'>
+                                    {% endif %}
+                                        {{notification}}
+                                    </a>
+                                    <hr>
                                 {% endfor %}
                             {% endwith %} 
                         </ul>
@@ -76,8 +85,8 @@
             </div>
 
 
-    		</div>
-    	</nav>
+            </div>
+        </nav>
 
         <div class="content container">
             <div class="row">
@@ -101,9 +110,5 @@
             </div>
         </div>
 
-        
 
 {% endblock %}
-
-<script src="{% static 'notifications/notify.js' %}" type="text/javascript"></script>
-{% register_notify_callbacks callbacks='fill_notification_list,fill_notification_badge' %}
