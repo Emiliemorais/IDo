@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 import notifications.urls
+import django_blog.urls
 
 from blog import views as blog_views
 from manager import views as manager_views
@@ -31,4 +32,5 @@ urlpatterns = [
     url(r'^blog/', include('blog.urls')),
 
     url('^inbox/notifications/', include(notifications.urls, namespace='notifications')),
+    url('^django_blog/', include(django_blog.urls, namespace='dp_blog')),
 ]

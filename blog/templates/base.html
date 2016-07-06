@@ -17,7 +17,8 @@
         <nav class="navbar navbar-default navbar-fixed-top" id="navbarIdo">
     	  <div class="container">
     	    <div class="navbar-header">
-              <a class="navbar-brand" href="#" id="app_title"><i>I do</i></a>
+              <a class="navbar-brand" href="/" id="app_title"><i>I do</i></a>
+            
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -31,7 +32,6 @@
                     <li><a href="{% url 'update_enterprise' 1%}">{% trans 'Enterprise info' %}</a></li>
                     <li><a href="{% url 'messages'%}">{% trans 'Messages' %}</a></li>
                     <li><a href="{% url 'solicited_budgets'%}">{% trans 'Bugdet solicitations' %}</a></li>
-                    <!-- <li><a href="{% url 'about'%}">{% trans 'Posts' %}</a></li> -->
                 {%endif%}
                 </ul>
             <ul class="nav navbar-nav navbar-right">

@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'manager',
     'bootstrap3',
     'bootstrap_ui',
-    'notifications'
+    'notifications',
+    'django_blog'
 ]
 
 MIDDLEWARE_CLASSES = [
