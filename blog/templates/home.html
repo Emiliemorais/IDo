@@ -1,3 +1,7 @@
 {% extends "base.html" %}
+{% load django_blog_tags %}
+
+
 {% block content %}
+{%all_posts%}
 {% endblock %}

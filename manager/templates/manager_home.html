@@ -2,8 +2,11 @@
 {% load i18n %}
 {% load bootstrap3 %}
 {% load staticfiles%}
+{% load django_blog_tags %}
+
 {% block content %}
-{% load notifications_tags %}
+
+{% new_post %}
 
 <h1> Informações sobre <i>{{enterprise.name}}</i></h1> 
 <h4> {% trans 'About' %}: <br>
