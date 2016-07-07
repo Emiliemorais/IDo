@@ -17,7 +17,6 @@
 
 #title{
     color: #00CED1;
-
 }
 
 .panel-ido > .panel-heading {
@@ -29,4 +28,15 @@
 .label-ido{
   color: #fff;
   background-color: #FF1493;
+}
+
+#posts{
+  float: left; 
+  width: 90%;
+}
+
+#list_posts{
+  float: right; 
+  margin-right: -50%;
+  width: 30%;
 }

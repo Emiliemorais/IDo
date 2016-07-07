@@ -1,7 +1,51 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 {% load django_blog_tags %}
+{% load bootstrap_ui_tags %}
 
 
 {% block content %}
-{%all_posts%}
+{% all_posts_new_to_old as posts %}
+
+<div id="posts">
+
+{% for post in posts %}
+	<div class="cont-post" border="1px">
+	    <header>
+	    <div class="entry-date" align="center">
+	    	
+    		<img src="{% static 'img/logo.png' %}">
+	        <h4><time itemprop="published" id="icon">{{post.date.date}}
+	        </time>
+	        <h4>
+	    </div>
+	        <h2 itemprop="headline" id="title">{{post.title}}</h2>
+	    </header>
+	    <body>
+	    		
+	    	{{post.content}}
+
+	    </body>
+
+	</div>
+
+<br><br>
+
+{% endfor %}
+</div>
+
+<div id="list_posts">
+
+<h4 id="title">Postagens</h4>
+
+{% listgroup %}
+	{% for post in posts %}
+		    {% listgroupitem %}
+		        {{post.title}} - {{post.date.date}}
+		    {% endlistgroupitem %}
+	{% endfor %}
+{% endlistgroup %}
+
+</div>
+
 {% endblock %}
