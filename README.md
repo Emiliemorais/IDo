@@ -8,15 +8,8 @@ It is a website for "I do" enterprise that offer services for wedding and dating
 
 ### Install dependencies:
 
-* Django
-      
-        pip install Django==1.9.6
+        pip install -r requirements.txt
 
-* Bootstrap
-      
-        pip install django-bootstrap3==7.0.1
-      
-        pip install django-bootstrap-ui==0.2.0
 
 ### Running I do
 
