@@ -17,6 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 import notifications.urls
 import django_blog.urls
+from django_blog import views as django_blog_views
 
 from blog import views as blog_views
 from manager import views as manager_views
@@ -33,4 +34,5 @@ urlpatterns = [
 
     url('^inbox/notifications/', include(notifications.urls, namespace='notifications')),
     url('^django_blog/', include(django_blog.urls, namespace='dp_blog')),
+    url(r'^post/$', django_blog_views.PostView.as_view(), {'template_name': 'new_post.html'}, name='post'),
 ]
