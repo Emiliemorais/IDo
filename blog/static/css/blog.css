@@ -17,7 +17,6 @@
 
 #title{
     color: #00CED1;
-
 }
 
 .panel-ido > .panel-heading {
@@ -40,4 +39,15 @@ a:focus {
   outline: none;
   text-decoration: none;
   color: #FF1493;
+}
+
+#posts{
+  float: left; 
+  width: 90%;
+}
+
+#list_posts{
+  float: right; 
+  margin-right: -50%;
+  width: 30%;
 }
