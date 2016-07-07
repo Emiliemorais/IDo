@@ -29,6 +29,7 @@
                     <li><a href="{% url 'contacts'%}">{% trans 'Talk to us' %}</a></li>
                     <li><a href="{% url 'solicit_budget'%}">{% trans 'Solicit your budget' %}</a></li>
             	{% else %}
+                    <li><a href="{% url 'post'%}">{% trans 'Posts' %}</a></li>
                     <li><a href="{% url 'update_enterprise' 1%}">{% trans 'Enterprise info' %}</a></li>
                     <li><a href="{% url 'messages'%}">{% trans 'Messages' %}</a></li>
                     <li><a href="{% url 'solicited_budgets'%}">{% trans 'Bugdet solicitations' %}</a></li>

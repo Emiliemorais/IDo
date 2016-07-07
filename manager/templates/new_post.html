@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load bootstrap3 %}
+{% load staticfiles%}
+{% load bootstrap_ui_tags %}
+
+{% block content %}
+{% column xs="7" md="10" md_offset="6" lg="5" %}
+	
+<div align="center">
+	<form method="post" action="{% url 'post' %}">
+	{% csrf_token %}
+	{% bootstrap_form form %}
+	
+	{% buttons %}
+	  <button type="submit" class="btn btn-ido">
+	    {% trans 'Post' %}
+	  </button>
+    {% endbuttons %}
+
+	</form>
+</div>
+
+{% endcolumn %}
+
+{% endblock %}
